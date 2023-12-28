@@ -1,4 +1,6 @@
+/*
 function signo(dia, mes) {
+
     switch (mes) {
         case 1:
             if (dia >= 1 && dia <= 19) {
@@ -122,3 +124,56 @@ do {
 } while (dia < 1 || dia > 31)
 
 alert(`Has nacido el ${dia}/${mes}, tu signo es: ${signo(dia, mes)}`);
+*/
+
+
+
+class Productos {
+    constructor(nombre, precio, cantidad) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
+};
+
+
+const listaProductos = [
+    {nombre: "collar", precio: 2500, cantidad: 6},
+    {nombre: "pantalon", precio: 12500, cantidad: 25},
+];
+let valorIngresado = 0;
+
+
+function agregarProducto(){
+    let nombre = prompt("Ingrese el nombre del producto:");
+    let precio = Number(prompt("Ingrese el valor del producto:"));
+    let cantidad = Number(prompt("Ingrese cantidad de productos en stock:"));
+
+    const producto = new Productos(nombre, precio, cantidad);
+    return preducto;
+}
+
+do{
+valorIngresado = Number(prompt("Eliga una opcion:\n\n1- Mostrar productos\n2- Agregar producto\n3- Verificar si existe producto\n4- Salir"));
+switch(valorIngresado){
+    case 1:
+        listaProductos.forEach(item => {
+            alert(`
+                Nombre: ${item.nombre}
+                Precio: ${item.precio}
+                Cantidad: ${item.cantidad}`
+            );
+        })
+    break;
+    case 2:
+        listaProductos.push(agregarProducto())
+    break;
+    case 3: 
+    let nombre = prompt("Ingrese el producto a verificar:")
+    alert(listaProductos.some((item) => item.nombre == nombre))
+    break;
+    case 4: valorIngresado = -1;
+    break;
+    default: alert("La opción ingresada es invalida.");
+}
+}while(valorIngrsado != -1)
